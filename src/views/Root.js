@@ -1,5 +1,6 @@
 import React from 'react';
+import Page from 'components/templates/Page';
 
-const Root = () => <h1>Hello world</h1>;
+const Root = () => <Page />;
 
 export default Root;
