@@ -6,10 +6,6 @@ const StyledSpinner = styled.h2`
   min-height: 100vh;
 `;
 
-const Spinner = () => (
-  <StyledSpinner>
-    <h2>Loading...</h2>
-  </StyledSpinner>
-);
+const Spinner = () => <StyledSpinner>Loading...</StyledSpinner>;
 
 export default Spinner;
