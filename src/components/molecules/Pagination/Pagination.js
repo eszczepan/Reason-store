@@ -1,44 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-// import Spinner from 'components/atoms/Spinner/Spinner';
+import Button from 'components/atoms/Button/Button';
 
 const StyledPagination = styled.nav`
-  /* text-align: center;
-  display: inline-grid;
-  grid-template-columns: repeat(4, auto);
-  align-items: stretch;
-  justify-content: center;
-  align-content: center;
-  margin: 0 auto;
-  border: 1px solid lightgrey;
-  border-radius: 10px;
-  & > * {
-    margin: 0;
-    padding: 15px 30px;
-    border-right: 1px solid lightgrey;
-    &:last-child {
-      border-right: 0;
-    }
-  }
-  a[aria-disabled='true'] {
-    color: grey;
-    pointer-events: none;
-  } */
-  margin: 0 auto;
+  margin: 3rem auto 2rem;
   ul {
-    text-align: center;
-    list-style: none;
     display: flex;
-  }
-
-  a {
-    color: black;
-    padding: 8px 8px;
-    text-decoration: none;
+    align-items: center;
+    margin-top: 40px;
+    font-size: 18px;
+    list-style: none;
   }
 `;
 
-const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
+const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
   const pageNumbers = [];
   const count = Math.ceil(totalItems / itemsPerPage);
   for (let i = 1; i <= count; i++) {
@@ -50,9 +25,15 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
       <ul>
         {pageNumbers.map((page) => (
           <li key={page}>
-            <a onClick={() => paginate(page)} href="!#">
-              {page}
-            </a>
+            {page === currentPage ? (
+              <Button currentPage onClick={() => paginate(page)} type="button">
+                {page}
+              </Button>
+            ) : (
+              <Button pagination onClick={() => paginate(page)} type="button">
+                {page}
+              </Button>
+            )}
           </li>
         ))}
       </ul>

@@ -1,24 +1,85 @@
 import styled, { css } from 'styled-components';
 
 const Button = styled.button`
-  background-color: green;
-  color: white;
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  padding: 10px 7px;
+  font-size: ${({ theme }) => theme.fontSize.s};
+  background-color: ${({ theme }) => theme.primary};
+  color: white;
+  padding: 1rem 2rem;
+  letter-spacing: 1px;
   border: none;
-  border-radius: 50px;
   outline: none;
   cursor: pointer;
-  ${({ secondary }) =>
-    secondary &&
+  transition: all 0.4s;
+
+  ${({ addToCart }) =>
+    addToCart &&
     css`
-      letter-spacing: 1px;
-      background-color: grey;
-      font-size: 10px;
-      height: 30px;
-      width: 105px;
+      font-size: ${({ theme }) => theme.fontSize.xxs};
+      width: 100%;
+      background-color: ${({ theme }) => theme.blue};
+      margin-top: 1rem;
+      &:hover {
+        transform: scale(1.05);
+      }
     `}
+  ${({ close }) =>
+    close &&
+    css`
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: ${({ theme }) => theme.fontSize.l};
+      background-color: ${({ theme }) => theme.black};
+      height: 3rem;
+      width: 3rem;
+      padding: 0 0.5rem;
+      &:hover {
+        font-size: ${({ theme }) => theme.fontSize.m};
+      }
+    `}
+  ${({ remove }) =>
+    remove &&
+    css`
+      font-size: ${({ theme }) => theme.fontSize.s};
+      background-color: ${({ theme }) => theme.red};
+      height: 1.5rem;
+      width: 1.5rem;
+      padding: 0;
+    `}
+  ${({ checkout }) =>
+    checkout &&
+    css`
+      font-size: ${({ theme }) => theme.fontSize.xs};
+      background-color: ${({ theme }) => theme.secondary};
+      text-transform: uppercase;
+      &:hover {
+        transform: scale(1.05);
+      }
+    `}
+    ${({ pagination }) =>
+      pagination &&
+      css`
+        font-size: ${({ theme }) => theme.fontSize.xxs};
+        background-color: ${({ theme }) => theme.secondary};
+        height: 2.2rem;
+        width: 2.2rem;
+        padding: 0.5rem;
+        margin: 0 0.05rem;
+        &:hover {
+          background-color: ${({ theme }) => theme.blue};
+        }
+      `}
+      ${({ currentPage }) =>
+        currentPage &&
+        css`
+          font-size: ${({ theme }) => theme.fontSize.xxs};
+          background-color: ${({ theme }) => theme.blue};
+          height: 2.2rem;
+          width: 2.2rem;
+          padding: 0.5rem;
+          margin: 0 0.05rem;
+        `}
 `;
 
 export default Button;

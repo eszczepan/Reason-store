@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { countPrice } from 'lib/countPrice';
+import { countProducts } from 'lib/countProducts';
 import Button from 'components/atoms/Button/Button';
 import Title from 'components/atoms/Title/Title';
-import { CartContext } from './CartContext';
+import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import CartItem from '../../molecules/CartItem/CartItem';
+import { CartContext } from './CartContext';
 
 const StyledCart = styled.div`
-  padding: 20px;
+  padding: 1rem;
   position: relative;
   background: white;
   position: fixed;
@@ -25,50 +28,59 @@ const StyledCart = styled.div`
   ${(props) => props.open && `transform: translateX(0);`};
   header {
     border-bottom: 5px solid black;
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
   }
   footer {
     border-top: 10px double black;
-    margin-top: 2rem;
-    padding-top: 2rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
     font-size: 3rem;
     font-weight: 900;
-    p {
-      margin: 0;
-    }
   }
   ul {
     width: 100%;
-    margin: 0;
-    padding: 0;
     list-style: none;
     overflow: scroll;
   }
 `;
 
-const Cart = () => {
-  const [cart] = useContext(CartContext);
-  const totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
+const StyledParagraph = styled(Paragraph)`
+  margin: 1rem;
+`;
 
+const Cart = () => {
+  const { cart, isOpen } = useContext(CartContext);
+  const [cartItems] = cart;
+  const [open, setOpen] = isOpen;
+
+  const closeCart = () => {
+    setOpen(false);
+  };
   return (
-    <StyledCart>
+    <StyledCart open={open}>
       <header>
-        <Button>&times;</Button>
-        <Title>Your Cart</Title>
-        <p>You Have {cart.length} Items in your cart.</p>
+        <Button close onClick={closeCart}>
+          &times;
+        </Button>
+        <Title cartTitle>Your Cart</Title>
+        <StyledParagraph>
+          You Have {countProducts(cartItems)} products in your cart.
+        </StyledParagraph>
       </header>
       <ul>
-        {cart.map((item) => (
+        {cartItems.map((item) => (
           <CartItem item={item} key={Math.random(item.id)} />
         ))}
       </ul>
       <footer>
-        <p>Total price: {totalPrice} zł</p>
-        <Button>Checkout</Button>
+        <Paragraph totalPrice>
+          Total price: {countPrice(cartItems)} zł
+        </Paragraph>
+        <Button checkout>Checkout</Button>
       </footer>
     </StyledCart>
   );

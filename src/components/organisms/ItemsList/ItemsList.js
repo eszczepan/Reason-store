@@ -19,6 +19,7 @@ const ItemsList = ({
   itemsPerPage,
   totalItems,
   paginate,
+  currentPage,
 }) => {
   return isLoading ? (
     <Spinner />
@@ -28,6 +29,7 @@ const ItemsList = ({
         itemsPerPage={itemsPerPage}
         totalItems={totalItems}
         paginate={paginate}
+        currentPage={currentPage}
       />
       <StyledList>
         {items.map((item) => (
@@ -38,6 +40,7 @@ const ItemsList = ({
         itemsPerPage={itemsPerPage}
         totalItems={totalItems}
         paginate={paginate}
+        currentPage={currentPage}
       />
     </>
   );

@@ -8,7 +8,7 @@ export const theme = {
   grey200: 'hsl(0, 0%, 90%)',
   grey300: 'hsl(0, 0%, 70%)',
   light: 300,
-  normal: 400,
+  regular: 400,
   bold: 700,
   fontSize: {
     xxs: '1rem',

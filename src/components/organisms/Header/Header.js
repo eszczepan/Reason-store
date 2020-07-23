@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
-import Title from 'components/atoms/Title/Title';
+import { CartContext } from 'components/organisms/Cart/CartContext';
+import Logo from 'components/atoms/Logo/Logo';
 import SearchInput from 'components/atoms/SearchInput/SearchInput';
+import CartIcon from 'components/atoms/CartIcon/CartIcon';
 
 const StyledHeader = styled.header`
-  background: green;
-  margin: 0;
-  padding: 0;
+  background: ${({ theme }) => theme.primary};
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   position: fixed;
   width: 100%;
   top: 0;
@@ -16,16 +17,19 @@ const StyledHeader = styled.header`
   z-index: 100;
 `;
 
-const StyledTitle = styled(Title)`
-  color: black;
-`;
-
-const Header = ({ getQuery }) => (
-  <StyledHeader>
-    <StyledTitle>ReasonStore</StyledTitle>
-    <SearchInput getQuery={getQuery} />
-    <button type="button">&times;</button>
-  </StyledHeader>
-);
+const Header = ({ getQuery }) => {
+  const { isOpen } = useContext(CartContext);
+  const [open, setOpen] = isOpen;
+  const openCart = () => {
+    setOpen(true);
+  };
+  return (
+    <StyledHeader>
+      <Logo />
+      <SearchInput getQuery={getQuery} />
+      <CartIcon onClick={openCart} />
+    </StyledHeader>
+  );
+};
 
 export default Header;

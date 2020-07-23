@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 const Main = styled.main`
-  margin-top: 70px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 1rem;
 `;
 
 export default Main;
