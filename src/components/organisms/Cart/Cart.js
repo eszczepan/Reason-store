@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { AppContext } from 'context';
 import { countPrice } from 'lib/countPrice';
 import { countProducts } from 'lib/countProducts';
 import Button from 'components/atoms/Button/Button';
 import Title from 'components/atoms/Title/Title';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import CartItem from '../../molecules/CartItem/CartItem';
-import { CartContext } from './CartContext';
 
 const StyledCart = styled.div`
   padding: 1rem;
@@ -53,7 +53,7 @@ const StyledParagraph = styled(Paragraph)`
 `;
 
 const Cart = () => {
-  const { cart, isOpen } = useContext(CartContext);
+  const { cart, isOpen } = useContext(AppContext);
   const [cartItems] = cart;
   const [open, setOpen] = isOpen;
 

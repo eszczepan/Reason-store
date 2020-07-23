@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import MainTemplate from 'components/templates/MainTemplate';
 import { rootAPI, perPage } from 'config';
-import { CartProvider } from 'components/organisms/Cart/CartContext';
+import { AppProvider } from 'context';
 import Header from 'components/organisms/Header/Header';
 import Main from 'components/organisms/Main/Main';
 import Footer from 'components/organisms/Footer/Footer';
@@ -37,7 +37,7 @@ const Root = () => {
   return (
     <MainTemplate>
       <>
-        <CartProvider>
+        <AppProvider>
           <Header getQuery={(q) => setQuery(q)} />
           <Main>
             <ItemsList
@@ -50,7 +50,7 @@ const Root = () => {
             />
             <Cart />
           </Main>
-        </CartProvider>
+        </AppProvider>
         <Footer />
       </>
     </MainTemplate>

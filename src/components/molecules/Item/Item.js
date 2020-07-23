@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { CartContext } from 'components/organisms/Cart/CartContext';
+import { AppContext } from 'context';
 import image from 'assets/images/image.png';
 import PriceTag from 'components/atoms/PriceTag/PriceTag';
 import Title from 'components/atoms/Title/Title';
@@ -18,7 +18,6 @@ const appear = keyframes`
 
 const StyledItem = styled.div`
   animation: ${appear} 1s;
-  max-height: 420px;
   border: 1px solid #f2f2f2;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -34,7 +33,7 @@ const StyledItem = styled.div`
 `;
 
 const Item = ({ item }) => {
-  const { cart } = useContext(CartContext);
+  const { cart } = useContext(AppContext);
   const [cartItems, setCartItems] = cart;
 
   const addToCart = () => {

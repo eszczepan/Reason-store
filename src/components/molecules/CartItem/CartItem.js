@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { CartContext } from 'components/organisms/Cart/CartContext';
+import { AppContext } from 'context';
 import image from 'assets/images/image.png';
 import Title from 'components/atoms/Title/Title';
 import Button from 'components/atoms/Button/Button';
@@ -25,7 +25,7 @@ const StyledCartItem = styled.li`
 `;
 
 const CartItem = ({ item }) => {
-  const { cart } = useContext(CartContext);
+  const { cart } = useContext(AppContext);
   const [cartItems, setCartItems] = cart;
   const removeItem = () => {
     const newCartItems = cartItems.filter((i) => i.id !== item.id);

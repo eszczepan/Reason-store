@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
-export const CartContext = React.createContext();
+export const AppContext = React.createContext();
 
-export const CartProvider = ({ children }) => {
+export const AppProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [open, setOpen] = useState(false);
   return (
-    <CartContext.Provider
+    <AppContext.Provider
       value={{ cart: [cartItems, setCartItems], isOpen: [open, setOpen] }}
     >
       {children}
-    </CartContext.Provider>
+    </AppContext.Provider>
   );
 };

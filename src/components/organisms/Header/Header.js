@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { CartContext } from 'components/organisms/Cart/CartContext';
+import { AppContext } from 'context';
 import Logo from 'components/atoms/Logo/Logo';
 import SearchInput from 'components/atoms/SearchInput/SearchInput';
 import CartIcon from 'components/atoms/CartIcon/CartIcon';
@@ -18,7 +18,7 @@ const StyledHeader = styled.header`
 `;
 
 const Header = ({ getQuery }) => {
-  const { isOpen } = useContext(CartContext);
+  const { isOpen } = useContext(AppContext);
   const [open, setOpen] = isOpen;
   const openCart = () => {
     setOpen(true);
