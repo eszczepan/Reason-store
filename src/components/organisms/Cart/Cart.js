@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Button from 'components/atoms/Button/Button';
 import Title from 'components/atoms/Title/Title';
+import { CartContext } from './CartContext';
+import CartItem from '../../molecules/CartItem/CartItem';
 
 const StyledCart = styled.div`
   padding: 20px;
@@ -40,6 +42,7 @@ const StyledCart = styled.div`
     }
   }
   ul {
+    width: 100%;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -48,15 +51,23 @@ const StyledCart = styled.div`
 `;
 
 const Cart = () => {
+  const [cart] = useContext(CartContext);
+  const totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
+
   return (
     <StyledCart>
       <header>
         <Button>&times;</Button>
         <Title>Your Cart</Title>
-        <p>You Have -- Items in your cart.</p>
+        <p>You Have {cart.length} Items in your cart.</p>
       </header>
+      <ul>
+        {cart.map((item) => (
+          <CartItem item={item} key={Math.random(item.id)} />
+        ))}
+      </ul>
       <footer>
-        <p>10.10 zl</p>
+        <p>Total price: {totalPrice} zł</p>
         <Button>Checkout</Button>
       </footer>
     </StyledCart>
