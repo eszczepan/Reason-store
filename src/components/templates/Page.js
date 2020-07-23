@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { rootAPI, perPage } from 'config';
+import { CartProvider } from 'components/organisms/Cart/CartContext';
 import Header from 'components/organisms/Header/Header';
 import Main from 'components/organisms/Main/Main';
 import Footer from 'components/organisms/Footer/Footer';
 import ItemsList from 'components/organisms/ItemsList/ItemsList';
-import Cart from 'components/molecules/Cart/Cart';
+import Cart from 'components/organisms/Cart/Cart';
 
 const Page = () => {
   const [items, setItems] = useState([]);
@@ -34,17 +35,19 @@ const Page = () => {
 
   return (
     <>
-      <Header getQuery={(q) => setQuery(q)} />
-      <Main>
-        <ItemsList
-          isLoading={isLoading}
-          items={currentItems}
-          itemsPerPage={itemsPerPage}
-          totalItems={items.length}
-          paginate={paginate}
-        />
-        <Cart />
-      </Main>
+      <CartProvider>
+        <Header getQuery={(q) => setQuery(q)} />
+        <Main>
+          <ItemsList
+            isLoading={isLoading}
+            items={currentItems}
+            itemsPerPage={itemsPerPage}
+            totalItems={items.length}
+            paginate={paginate}
+          />
+          <Cart />
+        </Main>
+      </CartProvider>
       <Footer />
     </>
   );

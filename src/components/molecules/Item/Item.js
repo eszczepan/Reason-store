@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { CartContext } from 'components/organisms/Cart/CartContext';
 import image from 'assets/image.png';
 import PriceTag from 'components/atoms/PriceTag/PriceTag';
 import Title from 'components/atoms/Title/Title';
@@ -29,12 +30,21 @@ const StyledButton = styled(Button)`
 `;
 
 const Item = ({ item }) => {
+  const [setCart] = useContext(CartContext);
+  const addToCart = () => {
+    const itemToCart = {
+      id: item.id,
+      name: item.name,
+      price: item.price,
+    };
+    setCart((currentCart) => [...currentCart, itemToCart]);
+  };
   return (
     <StyledItem>
       <PriceTag>{item.price} zł</PriceTag>
       <img src={image} alt={item.name} />
       <Title>{item.name}</Title>
-      <StyledButton>Add To Cart</StyledButton>
+      <StyledButton onClick={addToCart}>Add To Cart</StyledButton>
     </StyledItem>
   );
 };
