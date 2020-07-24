@@ -11,6 +11,7 @@ export const theme = {
   regular: 400,
   bold: 700,
   fontSize: {
+    xxxs: '0.8rem',
     xxs: '1rem',
     xs: '1.2rem',
     s: '1.6rem',

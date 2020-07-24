@@ -7,6 +7,8 @@ const StyledPagination = styled.nav`
   margin: 3rem auto 2rem;
   ul {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     list-style: none;
   }
@@ -48,7 +50,7 @@ Pagination.propTypes = {
 };
 
 Pagination.defaultProps = {
-  itemsPerPage: 20,
+  itemsPerPage: 40,
 };
 
 export default Pagination;

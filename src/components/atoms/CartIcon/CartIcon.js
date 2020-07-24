@@ -15,6 +15,9 @@ const CartIcon = styled.button`
   :hover {
     background-color: white;
   }
+  @media (max-width: 600px) {
+    margin-bottom: 0.8rem;
+  }
 `;
 
 export default CartIcon;

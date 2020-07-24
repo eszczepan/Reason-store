@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 
-const AnimationStyles = styled.span`
+const StyledAnimation = styled.span`
   .count {
     display: block;
     position: relative;
@@ -26,7 +26,7 @@ const AnimationStyles = styled.span`
   }
 `;
 
-const Dot = styled.div`
+const StyledCartCount = styled.div`
   font-size: 0.8rem;
   font-weight: ${({ theme }) => theme.light};
   background: ${({ theme }) => theme.blue};
@@ -36,12 +36,10 @@ const Dot = styled.div`
   right: -2rem;
   padding: 0.2rem;
   border-radius: 15%;
-  font-feature-settings: 'tnum';
-  font-variant-numeric: tabular-nums;
 `;
 
 const CartCount = ({ count }) => (
-  <AnimationStyles>
+  <StyledAnimation>
     <TransitionGroup>
       <CSSTransition
         unmountOnExit
@@ -50,10 +48,10 @@ const CartCount = ({ count }) => (
         key={count}
         timeout={{ enter: 400, exit: 400 }}
       >
-        <Dot>{count}</Dot>
+        <StyledCartCount>{count}</StyledCartCount>
       </CSSTransition>
     </TransitionGroup>
-  </AnimationStyles>
+  </StyledAnimation>
 );
 
 CartCount.propTypes = {

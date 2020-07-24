@@ -12,6 +12,15 @@ const StyledList = styled.ul`
   max-width: 90%;
   min-height: 100vh;
   margin: 20px auto 0;
+  @media (max-width: 970px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ItemsList = ({
@@ -57,7 +66,7 @@ ItemsList.propTypes = {
 };
 
 ItemsList.defaultProps = {
-  itemsPerPage: 20,
+  itemsPerPage: 40,
 };
 
 export default ItemsList;

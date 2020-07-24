@@ -18,6 +18,9 @@ const StyledHeader = styled.header`
   top: 0;
   left: 0;
   z-index: 100;
+  @media (max-width: 600px) {
+    flex-wrap: wrap;
+  }
 `;
 
 const Header = ({ getQuery }) => {

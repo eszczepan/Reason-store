@@ -28,7 +28,7 @@ const StyledItem = styled.div`
   justify-content: space-between;
   img {
     width: 100%;
-    height: 50%;
+    height: 60%;
     object-fit: cover;
     background: white;
   }

@@ -25,6 +25,30 @@ const StyledCartItem = styled.li`
   }
 `;
 
+const StyledTitle = styled(Title)`
+  @media (max-width: 480px) {
+    font-size: ${({ theme }) => theme.fontSize.xxxs};
+    margin-right: auto;
+  }
+`;
+
+const StyledParagraph = styled(Paragraph)`
+  font-size: ${({ theme }) => theme.fontSize.xs};
+  margin-left: auto;
+  margin-right: 0.5rem;
+  @media (max-width: 480px) {
+    font-size: ${({ theme }) => theme.fontSize.xxxs};
+  }
+`;
+
+const StyledButton = styled(Button)`
+  @media (max-width: 480px) {
+    font-size: ${({ theme }) => theme.fontSize.xxxs};
+    height: 1rem;
+    width: 1rem;
+  }
+`;
+
 const CartItem = ({ item }) => {
   const { cart } = useContext(AppContext);
   const [cartItems, setCartItems] = cart;
@@ -36,13 +60,13 @@ const CartItem = ({ item }) => {
   return (
     <StyledCartItem>
       <img src={image} alt={item.name} />
-      <Title cartTitle>{item.name}</Title>
-      <Paragraph>
+      <StyledTitle cartTitle>{item.name}</StyledTitle>
+      <StyledParagraph>
         {item.quantity} x {item.price} zł
-      </Paragraph>
-      <Button remove onClick={removeItem}>
+      </StyledParagraph>
+      <StyledButton remove onClick={removeItem}>
         &times;
-      </Button>
+      </StyledButton>
     </StyledCartItem>
   );
 };

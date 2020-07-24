@@ -27,6 +27,12 @@ const StyledInput = styled.input`
   :focus {
     font-size: 0.8rem;
   }
+  @media (max-width: 600px) {
+    margin-bottom: 0.5rem;
+  }
+  @media (max-width: 380px) {
+    width: 10rem;
+  }
 `;
 
 const SearchInput = ({ getQuery }) => {
