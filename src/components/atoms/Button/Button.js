@@ -56,6 +56,13 @@ const Button = styled.button`
       &:hover {
         transform: scale(1.05);
       }
+      @media (max-width: 700px) {
+        padding: 0.7rem 1.4rem;
+      }
+      @media (max-width: 380px) {
+        font-size: ${({ theme }) => theme.fontSize.xxs};
+        padding: 0.5rem 1.1rem;
+      }
     `}
     ${({ pagination }) =>
       pagination &&

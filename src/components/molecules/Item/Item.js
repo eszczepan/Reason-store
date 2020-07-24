@@ -80,7 +80,7 @@ Item.propTypes = {
 
 Item.defaultProps = {
   item: PropTypes.shape({
-    quantity: 0,
+    quantity: 1,
   }),
 };
 

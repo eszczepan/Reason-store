@@ -82,7 +82,7 @@ CartItem.propTypes = {
 
 CartItem.defaultProps = {
   item: PropTypes.shape({
-    quantity: 0,
+    quantity: 1,
   }),
 };
 

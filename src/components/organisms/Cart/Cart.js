@@ -32,11 +32,11 @@ const StyledCart = styled.div`
   }
   footer {
     font-size: 3rem;
-    font-weight: 900;
+    font-weight: ${({ theme }) => theme.bold};
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
-    border-top: 10px double black;
+    border-top: 1rem double black;
     margin-top: 1rem;
     padding-top: 1rem;
   }

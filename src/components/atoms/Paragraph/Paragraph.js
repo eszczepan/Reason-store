@@ -7,6 +7,13 @@ const Paragraph = styled.p`
     css`
       font-size: ${({ theme }) => theme.fontSize.s};
       font-weight: ${({ theme }) => theme.bold};
+      text-align: center;
+      @media (max-width: 700px) {
+        font-size: ${({ theme }) => theme.fontSize.xs};
+      }
+      @media (max-width: 380px) {
+        font-size: ${({ theme }) => theme.fontSize.xxs};
+      }
     `}
   ${({ info }) =>
     info &&
