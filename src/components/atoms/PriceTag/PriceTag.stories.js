@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import PriceTag from './PriceTag';
 
 const StyledPriceTag = styled(PriceTag)`
-  top: 50%;
-  right: 50%;
+  top: 2rem;
+  right: 90%;
   transform: translate(-50%, -50%);
 `;
 
