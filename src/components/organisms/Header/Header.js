@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { AppContext } from 'context';
+import { countProducts } from 'lib/countProducts';
 import Logo from 'components/atoms/Logo/Logo';
 import SearchInput from 'components/atoms/SearchInput/SearchInput';
 import CartIcon from 'components/atoms/CartIcon/CartIcon';
@@ -21,8 +22,8 @@ const StyledHeader = styled.header`
 
 const Header = ({ getQuery }) => {
   const { isOpen, cart } = useContext(AppContext);
-  const [open, setOpen] = isOpen;
-  const [cartItems, setCartItems] = cart;
+  const [, setOpen] = isOpen;
+  const [cartItems] = cart;
   const openCart = () => {
     setOpen(true);
   };
@@ -31,7 +32,7 @@ const Header = ({ getQuery }) => {
       <Logo />
       <SearchInput getQuery={getQuery} />
       <CartIcon onClick={openCart}>
-        <CartCount count={cartItems.length} />
+        <CartCount count={countProducts(cartItems)} />
       </CartIcon>
     </StyledHeader>
   );
