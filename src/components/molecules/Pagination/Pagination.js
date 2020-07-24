@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from 'components/atoms/Button/Button';
 
@@ -39,6 +40,17 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
       </ul>
     </StyledPagination>
   );
+};
+
+Pagination.propTypes = {
+  itemsPerPage: PropTypes.number,
+  totalItems: PropTypes.number.isRequired,
+  paginate: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired,
+};
+
+Pagination.defaultProps = {
+  itemsPerPage: 20,
 };
 
 export default Pagination;

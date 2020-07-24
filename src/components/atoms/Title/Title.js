@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const Title = styled.h3`
+  font-size: ${({ theme }) => theme.fontSize.xs};
   background-color: ${({ theme }) => theme.secondary};
   color: white;
   padding: 0.2rem;

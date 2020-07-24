@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import search from 'assets/icons/search.svg';
 
@@ -7,7 +8,7 @@ const StyledInput = styled.input`
   align-items: center;
   height: 2rem;
   width: 14rem;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   background-color: ${({ theme }) => theme.grey100};
   padding: 0.4rem 0.3rem 0.3rem 2.5rem;
   border: none;
@@ -24,7 +25,7 @@ const StyledInput = styled.input`
     color: ${({ theme }) => theme.grey300};
   }
   :focus {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 `;
 
@@ -43,6 +44,10 @@ const SearchInput = ({ getQuery }) => {
       onChange={(e) => onChange(e.target.value)}
     />
   );
+};
+
+SearchInput.propTypes = {
+  getQuery: PropTypes.func.isRequired,
 };
 
 export default SearchInput;

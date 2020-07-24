@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { AppContext } from 'context';
 import image from 'assets/images/image.png';
@@ -31,6 +32,7 @@ const CartItem = ({ item }) => {
     const newCartItems = cartItems.filter((i) => i.id !== item.id);
     setCartItems(newCartItems);
   };
+
   return (
     <StyledCartItem>
       <img src={image} alt={item.name} />
@@ -43,6 +45,21 @@ const CartItem = ({ item }) => {
       </Button>
     </StyledCartItem>
   );
+};
+
+CartItem.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    quantity: PropTypes.number,
+  }),
+};
+
+CartItem.defaultProps = {
+  item: PropTypes.shape({
+    quantity: 0,
+  }),
 };
 
 export default CartItem;

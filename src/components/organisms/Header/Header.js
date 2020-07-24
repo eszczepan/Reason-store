@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { AppContext } from 'context';
 import Logo from 'components/atoms/Logo/Logo';
@@ -30,6 +31,10 @@ const Header = ({ getQuery }) => {
       <CartIcon onClick={openCart} />
     </StyledHeader>
   );
+};
+
+Header.propTypes = {
+  getQuery: PropTypes.func.isRequired,
 };
 
 export default Header;

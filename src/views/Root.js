@@ -20,7 +20,11 @@ const Root = () => {
     const fetchItems = async () => {
       setisLoading(true);
       const result = await axios(rootAPI);
-      setItems(result.data.filter((item) => item.name.includes(query)));
+      setItems(
+        result.data.filter((item) =>
+          item.name.toLowerCase().includes(query.toLowerCase()),
+        ),
+      );
       setCurrentPage(1);
       setisLoading(false);
     };
@@ -38,18 +42,20 @@ const Root = () => {
     <MainTemplate>
       <>
         <AppProvider>
-          <Header getQuery={(q) => setQuery(q)} />
-          <Main>
-            <ItemsList
-              isLoading={isLoading}
-              items={currentItems}
-              itemsPerPage={itemsPerPage}
-              totalItems={items.length}
-              paginate={paginate}
-              currentPage={currentPage}
-            />
-            <Cart />
-          </Main>
+          <>
+            <Header getQuery={(q) => setQuery(q)} />
+            <Main>
+              <ItemsList
+                isLoading={isLoading}
+                items={currentItems}
+                itemsPerPage={itemsPerPage}
+                totalItems={items.length}
+                paginate={paginate}
+                currentPage={currentPage}
+              />
+              <Cart />
+            </Main>
+          </>
         </AppProvider>
         <Footer />
       </>

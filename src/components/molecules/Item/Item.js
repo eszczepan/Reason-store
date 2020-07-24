@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import { AppContext } from 'context';
 import image from 'assets/images/image.png';
@@ -20,13 +21,14 @@ const StyledItem = styled.div`
   animation: ${appear} 1s;
   border: 1px solid #f2f2f2;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
+  max-height: 450px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   img {
     width: 100%;
-    height: 70%;
+    height: 50%;
     object-fit: cover;
     background: white;
   }
@@ -65,6 +67,21 @@ const Item = ({ item }) => {
       </Button>
     </StyledItem>
   );
+};
+
+Item.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    quantity: PropTypes.number,
+  }),
+};
+
+Item.defaultProps = {
+  item: PropTypes.shape({
+    quantity: 0,
+  }),
 };
 
 export default Item;

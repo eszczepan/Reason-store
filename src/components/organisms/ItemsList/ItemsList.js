@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Item from 'components/molecules/Item/Item';
 import Spinner from 'components/atoms/Spinner/Spinner';
@@ -44,6 +45,19 @@ const ItemsList = ({
       />
     </>
   );
+};
+
+ItemsList.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  itemsPerPage: PropTypes.number,
+  totalItems: PropTypes.number.isRequired,
+  paginate: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired,
+};
+
+ItemsList.defaultProps = {
+  itemsPerPage: 20,
 };
 
 export default ItemsList;
