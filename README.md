@@ -16,7 +16,7 @@ React application simulating a shopping cart.
 * Summary of added products
 
 **Unfinished functionalities:**
-* Checkout validation
+* Credit Card Processing with Stripe Checkout
 
 ## :wrench: Tools
 
