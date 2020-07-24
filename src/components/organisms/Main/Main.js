@@ -4,7 +4,7 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 5rem;
 `;
 
 export default Main;

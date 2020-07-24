@@ -5,6 +5,7 @@ import { AppContext } from 'context';
 import Logo from 'components/atoms/Logo/Logo';
 import SearchInput from 'components/atoms/SearchInput/SearchInput';
 import CartIcon from 'components/atoms/CartIcon/CartIcon';
+import CartCount from 'components/atoms/CartCount/CartCount';
 
 const StyledHeader = styled.header`
   background: ${({ theme }) => theme.primary};
@@ -19,8 +20,9 @@ const StyledHeader = styled.header`
 `;
 
 const Header = ({ getQuery }) => {
-  const { isOpen } = useContext(AppContext);
+  const { isOpen, cart } = useContext(AppContext);
   const [open, setOpen] = isOpen;
+  const [cartItems, setCartItems] = cart;
   const openCart = () => {
     setOpen(true);
   };
@@ -28,7 +30,9 @@ const Header = ({ getQuery }) => {
     <StyledHeader>
       <Logo />
       <SearchInput getQuery={getQuery} />
-      <CartIcon onClick={openCart} />
+      <CartIcon onClick={openCart}>
+        <CartCount count={cartItems.length} />
+      </CartIcon>
     </StyledHeader>
   );
 };

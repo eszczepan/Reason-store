@@ -7,9 +7,7 @@ const StyledPagination = styled.nav`
   margin: 3rem auto 2rem;
   ul {
     display: flex;
-    align-items: center;
-    margin-top: 40px;
-    font-size: 18px;
+    flex-wrap: wrap;
     list-style: none;
   }
 `;
