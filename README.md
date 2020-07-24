@@ -1,10 +1,12 @@
-# ReasonStore
+# :tada: ReasonStore
 
 React application simulating a shopping cart.
 
 <img src="src/assets/images/reasonStore.png">
 
-## Functionalities
+## :rocket: Functionalities
+**Main functionalities:**
+
 * Downloading products from an [external API](https://www.reasonapps.pl/data.json)
 * Displaying the list of products
 * Pagination the list of products
@@ -13,9 +15,13 @@ React application simulating a shopping cart.
 * Ability to remove a product from the basket
 * Summary of added products
 
-## Tools
+**Unfinished functionalities:**
+* Show no results view
+* Checkout validation
 
-The following tools were used in project:
+## :wrench: Tools
+
+**The following tools were used in project:**
 * **React** - Main technology
 * **Axios** - Promise based HTTP client
 * **Styled-components** - Writing styles
@@ -25,7 +31,7 @@ The following tools were used in project:
 * **Hooks** - use state and other React features without writing a class component
 * **PropTypes** - checking for React props and similar objects
 
-## Install
+## :construction_worker: Install
 
 ### `npm install`
 
