@@ -16,8 +16,7 @@ React application simulating a shopping cart.
 * Summary of added products
 
 **Unfinished functionalities:**
-* Show no results view
-* Checkout validation
+* Credit Card Processing with Stripe Checkout
 
 ## :wrench: Tools
 
@@ -47,5 +46,10 @@ Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm run storybook`
+
 Runs the app in storybook.<br />
 Open [http://localhost:9009](http://localhost:9009) to view it in the browser.
+
+### `npm run test`
+
+Launches the test runner in the interactive watch mode.
