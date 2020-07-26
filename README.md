@@ -17,6 +17,7 @@ React application simulating a shopping cart.
 
 **Unfinished functionalities:**
 * Credit Card Processing with Stripe Checkout
+* Sorting products by price and name
 
 ## :wrench: Tools
 
@@ -53,3 +54,7 @@ Open [http://localhost:9009](http://localhost:9009) to view it in the browser.
 ### `npm run test`
 
 Launches the test runner in the interactive watch mode.
+
+## :movie_camera: Live
+
+eszczepan-reasonstore.netlify.app
