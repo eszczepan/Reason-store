@@ -57,4 +57,4 @@ Launches the test runner in the interactive watch mode.
 
 ## :movie_camera: Live
 
-eszczepan-reasonstore.netlify.app
+https://eszczepan-reasonstore.netlify.app
