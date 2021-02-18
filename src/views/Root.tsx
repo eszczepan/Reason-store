@@ -21,7 +21,7 @@ const Root = () => {
       setisLoading(true);
       const result = await axios(rootAPI);
       setItems(
-        result.data.filter((item) =>
+        result.data.filter((item: any) =>
           item.name.toLowerCase().includes(query.toLowerCase()),
         ),
       );
@@ -36,7 +36,7 @@ const Root = () => {
   const indexOfFirstPost = indexOfLastPost - itemsPerPage;
   const currentItems = items.slice(indexOfFirstPost, indexOfLastPost);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
     <MainTemplate>
