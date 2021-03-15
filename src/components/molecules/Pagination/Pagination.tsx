@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import Button from 'components/atoms/Button/Button';
 
@@ -14,7 +13,19 @@ const StyledPagination = styled.nav`
   }
 `;
 
-const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
+interface IProps {
+  itemsPerPage: number;
+  totalItems: number;
+  paginate(page: number): void;
+  currentPage: number;
+}
+
+const Pagination: FC<IProps> = ({
+  itemsPerPage,
+  totalItems,
+  paginate,
+  currentPage,
+}) => {
   const pageNumbers = [];
   const count = Math.ceil(totalItems / itemsPerPage);
   for (let i = 1; i <= count; i++) {
@@ -40,17 +51,6 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
       </ul>
     </StyledPagination>
   );
-};
-
-Pagination.propTypes = {
-  itemsPerPage: PropTypes.number,
-  totalItems: PropTypes.number.isRequired,
-  paginate: PropTypes.func.isRequired,
-  currentPage: PropTypes.number.isRequired,
-};
-
-Pagination.defaultProps = {
-  itemsPerPage: 40,
 };
 
 export default Pagination;

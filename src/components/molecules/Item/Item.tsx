@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
+import React, { FC, useContext } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { AppContext } from 'context';
+
+import { IItem } from 'typings/models';
 import image from 'assets/images/image.png';
 import PriceTag from 'components/atoms/PriceTag/PriceTag';
 import Title from 'components/atoms/Title/Title';
@@ -34,12 +35,16 @@ const StyledItem = styled.div`
   }
 `;
 
-const Item = ({ item }) => {
+interface IProps {
+  item: IItem;
+}
+
+const Item: FC<IProps> = ({ item }) => {
   const { cart } = useContext(AppContext);
   const [cartItems, setCartItems] = cart;
 
   const addToCart = () => {
-    const found = cartItems.find((i) => item.id === i.id);
+    const found = cartItems.find((i: IItem) => item.id === i.id);
 
     found
       ? setCartItems(() => {
@@ -67,21 +72,6 @@ const Item = ({ item }) => {
       </Button>
     </StyledItem>
   );
-};
-
-Item.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    quantity: PropTypes.number,
-  }),
-};
-
-Item.defaultProps = {
-  item: PropTypes.shape({
-    quantity: 1,
-  }),
 };
 
 export default Item;

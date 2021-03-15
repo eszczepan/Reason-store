@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
+import React, { FC, useContext } from 'react';
 import styled from 'styled-components';
 import { AppContext } from 'context';
+
+import { IItem } from 'typings/models';
 import image from 'assets/images/image.png';
 import Title from 'components/atoms/Title/Title';
 import Button from 'components/atoms/Button/Button';
@@ -49,11 +50,15 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const CartItem = ({ item }) => {
+interface IProps {
+  item: IItem;
+}
+
+const CartItem: FC<IProps> = ({ item }) => {
   const { cart } = useContext(AppContext);
   const [cartItems, setCartItems] = cart;
   const removeItem = () => {
-    const newCartItems = cartItems.filter((i) => i.id !== item.id);
+    const newCartItems = cartItems.filter((i: IItem) => i.id !== item.id);
     setCartItems(newCartItems);
   };
 
@@ -69,21 +74,6 @@ const CartItem = ({ item }) => {
       </StyledButton>
     </StyledCartItem>
   );
-};
-
-CartItem.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    quantity: PropTypes.number,
-  }),
-};
-
-CartItem.defaultProps = {
-  item: PropTypes.shape({
-    quantity: 1,
-  }),
 };
 
 export default CartItem;
