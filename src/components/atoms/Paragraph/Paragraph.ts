@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components';
 
-const Paragraph = styled.p`
+interface IParagraph {
+  totalPrice: boolean;
+  info: boolean;
+}
+
+const Paragraph = styled.p<IParagraph>`
   font-size: ${({ theme }) => theme.fontSize.xs};
   ${({ totalPrice }) =>
     totalPrice &&

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 
 const StyledLogo = styled.h1`
@@ -19,7 +19,7 @@ const StyledLogo = styled.h1`
   }
 `;
 
-const Logo = () => (
+const Logo: FC = () => (
   <StyledLogo>
     <a href="!#">ReasonStore</a>
   </StyledLogo>

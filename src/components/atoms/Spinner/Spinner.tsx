@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const spin = keyframes`
@@ -57,7 +57,7 @@ const StyledDiv = styled.div`
   margin-top: 15rem;
 `;
 
-const Spinner = () => (
+const Spinner: FC = () => (
   <StyledDiv>
     <StyledSpinner />
   </StyledDiv>

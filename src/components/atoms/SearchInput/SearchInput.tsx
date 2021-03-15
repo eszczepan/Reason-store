@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import search from 'assets/icons/search.svg';
 
@@ -35,10 +34,14 @@ const StyledInput = styled.input`
   }
 `;
 
-const SearchInput = ({ getQuery }) => {
-  const [text, setText] = useState('');
+interface IProps {
+  getQuery(q: string): void;
+}
 
-  const onChange = (q) => {
+const SearchInput: FC<IProps> = ({ getQuery }) => {
+  const [text, setText] = useState<string>('');
+
+  const onChange = (q: string) => {
     setText(q);
     getQuery(q);
   };
@@ -50,10 +53,6 @@ const SearchInput = ({ getQuery }) => {
       onChange={(e) => onChange(e.target.value)}
     />
   );
-};
-
-SearchInput.propTypes = {
-  getQuery: PropTypes.func.isRequired,
 };
 
 export default SearchInput;

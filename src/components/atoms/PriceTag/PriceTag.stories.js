@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import PriceTag from './PriceTag';
+import PriceTag from './PriceTag.ts';
 
 const StyledPriceTag = styled(PriceTag)`
   top: 2rem;

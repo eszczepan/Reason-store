@@ -1,5 +1,5 @@
 import React from 'react';
-import Paragraph from './Paragraph';
+import Paragraph from './Paragraph.ts';
 
 export default {
   component: Paragraph,

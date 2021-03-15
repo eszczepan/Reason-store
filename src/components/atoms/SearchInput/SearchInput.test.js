@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import SearchInput from './SearchInput';
+import SearchInput from './SearchInput.tsx';
 
 describe('SearchInput component', () => {
   test('Renders input element', () => {

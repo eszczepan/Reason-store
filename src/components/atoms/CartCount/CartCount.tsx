@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FC } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 
@@ -38,7 +37,11 @@ const StyledCartCount = styled.div`
   border-radius: 15%;
 `;
 
-const CartCount = ({ count }) => (
+interface IProps {
+  count: number;
+}
+
+const CartCount: FC<IProps> = ({ count }) => (
   <StyledAnimation>
     <TransitionGroup>
       <CSSTransition
@@ -54,7 +57,4 @@ const CartCount = ({ count }) => (
   </StyledAnimation>
 );
 
-CartCount.propTypes = {
-  count: PropTypes.number.isRequired,
-};
 export default CartCount;

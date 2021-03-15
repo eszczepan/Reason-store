@@ -1,6 +1,15 @@
 import styled, { css } from 'styled-components';
 
-const Button = styled.button`
+interface IButton {
+  addToCart: boolean;
+  close: boolean;
+  remove: boolean;
+  checkout: boolean;
+  pagination: boolean;
+  currentPage: boolean;
+}
+
+const Button = styled.button<IButton>`
   font-family: 'Montserrat', sans-serif;
   font-size: ${({ theme }) => theme.fontSize.s};
   background-color: ${({ theme }) => theme.primary};

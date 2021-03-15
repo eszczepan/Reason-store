@@ -1,5 +1,5 @@
 import React from 'react';
-import CartIcon from './CartIcon';
+import CartIcon from './CartIcon.ts';
 
 export default {
   component: CartIcon,

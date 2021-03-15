@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import CartCount from './CartCount';
+import CartCount from './CartCount.tsx';
 
 const StyledDiv = styled.div`
   position: absolute;
