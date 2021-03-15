@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import Title from 'components/atoms/Title/Title';
 
@@ -18,7 +18,7 @@ const StyledTitle = styled(Title)`
   font-size: ${({ theme }) => theme.fontSize.xxs};
 `;
 
-const Footer = () => (
+const Footer: FC = () => (
   <StyledFooter>
     <StyledTitle>Created by Szczepan Szablej</StyledTitle>
   </StyledFooter>

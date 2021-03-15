@@ -1,14 +1,20 @@
-import React, { useContext } from 'react';
+import React, { FC, useContext } from 'react';
 import styled from 'styled-components';
 import { AppContext } from 'context';
+
+import { IItem } from 'typings';
 import { countPrice } from 'lib/countPrice';
 import { countProducts } from 'lib/countProducts';
 import Button from 'components/atoms/Button/Button';
 import Title from 'components/atoms/Title/Title';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
-import CartItem from '../../molecules/CartItem/CartItem';
+import CartItem from 'components/molecules/CartItem/CartItem';
 
-const StyledCart = styled.div`
+interface IStyledCart {
+  open?: boolean;
+}
+
+const StyledCart = styled.div<IStyledCart>`
   position: fixed;
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -24,7 +30,7 @@ const StyledCart = styled.div`
   transform: translateX(100%);
   transition: all 0.3s;
   z-index: 105;
-  ${(props) => props.open && `transform: translateX(0);`};
+  ${({ open }) => open && `transform: translateX(0);`};
   header {
     border-bottom: 5px solid black;
     margin-bottom: 1rem;
@@ -54,7 +60,7 @@ const StyledParagraph = styled(Paragraph)`
   margin: 1rem;
 `;
 
-const Cart = () => {
+const Cart: FC = () => {
   const { cart, isOpen } = useContext(AppContext);
   const [cartItems] = cart;
   const [open, setOpen] = isOpen;
@@ -74,8 +80,8 @@ const Cart = () => {
         </StyledParagraph>
       </header>
       <ul>
-        {cartItems.map((item) => (
-          <CartItem item={item} key={Math.random(item.id)} />
+        {cartItems.map((item: IItem) => (
+          <CartItem item={item} key={item.id} />
         ))}
       </ul>
       <footer>

@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FC } from 'react';
 import styled from 'styled-components';
+
+import { IItem } from 'typings';
 import Item from 'components/molecules/Item/Item';
 import Spinner from 'components/atoms/Spinner/Spinner';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
@@ -30,7 +31,16 @@ const StyledNoItem = styled.div`
   text-align: center;
 `;
 
-const ItemsList = ({
+interface IProps {
+  isLoading: boolean;
+  items: IItem[];
+  itemsPerPage: number;
+  totalItems: number;
+  paginate(page: number): void;
+  currentPage: number;
+}
+
+const ItemsList: FC<IProps> = ({
   isLoading,
   items,
   itemsPerPage,
@@ -70,18 +80,5 @@ const ItemsList = ({
     )}
   </>
 );
-
-ItemsList.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  items: PropTypes.arrayOf(PropTypes.object).isRequired,
-  itemsPerPage: PropTypes.number,
-  totalItems: PropTypes.number.isRequired,
-  paginate: PropTypes.func.isRequired,
-  currentPage: PropTypes.number.isRequired,
-};
-
-ItemsList.defaultProps = {
-  itemsPerPage: 40,
-};
 
 export default ItemsList;

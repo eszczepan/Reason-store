@@ -2,7 +2,7 @@ import React, { FC, useContext } from 'react';
 import styled from 'styled-components';
 import { AppContext } from 'context';
 
-import { IItem } from 'typings/models';
+import { IItem } from 'typings';
 import image from 'assets/images/image.png';
 import Title from 'components/atoms/Title/Title';
 import Button from 'components/atoms/Button/Button';
@@ -57,6 +57,7 @@ interface IProps {
 const CartItem: FC<IProps> = ({ item }) => {
   const { cart } = useContext(AppContext);
   const [cartItems, setCartItems] = cart;
+
   const removeItem = () => {
     const newCartItems = cartItems.filter((i: IItem) => i.id !== item.id);
     setCartItems(newCartItems);

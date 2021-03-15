@@ -2,7 +2,7 @@ import React, { FC, useContext } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { AppContext } from 'context';
 
-import { IItem } from 'typings/models';
+import { IItem } from 'typings';
 import image from 'assets/images/image.png';
 import PriceTag from 'components/atoms/PriceTag/PriceTag';
 import Title from 'components/atoms/Title/Title';

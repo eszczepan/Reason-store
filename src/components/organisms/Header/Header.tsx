@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
+import React, { FC, useContext } from 'react';
 import styled from 'styled-components';
 import { AppContext } from 'context';
+
 import { countProducts } from 'lib/countProducts';
 import Logo from 'components/atoms/Logo/Logo';
 import SearchInput from 'components/atoms/SearchInput/SearchInput';
@@ -23,7 +23,11 @@ const StyledHeader = styled.header`
   }
 `;
 
-const Header = ({ getQuery }) => {
+interface IProps {
+  getQuery(q: string): void;
+}
+
+const Header: FC<IProps> = ({ getQuery }) => {
   const { isOpen, cart } = useContext(AppContext);
   const [, setOpen] = isOpen;
   const [cartItems] = cart;
@@ -39,10 +43,6 @@ const Header = ({ getQuery }) => {
       </CartIcon>
     </StyledHeader>
   );
-};
-
-Header.propTypes = {
-  getQuery: PropTypes.func.isRequired,
 };
 
 export default Header;
