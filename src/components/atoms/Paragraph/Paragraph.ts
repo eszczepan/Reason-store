@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
 interface IParagraph {
-  totalPrice: boolean;
-  info: boolean;
+  totalPrice?: boolean;
+  info?: boolean;
 }
 
 const Paragraph = styled.p<IParagraph>`

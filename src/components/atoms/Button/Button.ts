@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
 
 interface IButton {
-  addToCart: boolean;
-  close: boolean;
-  remove: boolean;
-  checkout: boolean;
-  pagination: boolean;
-  currentPage: boolean;
+  addToCart?: boolean;
+  close?: boolean;
+  remove?: boolean;
+  checkout?: boolean;
+  pagination?: boolean;
+  currentPage?: boolean;
 }
 
 const Button = styled.button<IButton>`

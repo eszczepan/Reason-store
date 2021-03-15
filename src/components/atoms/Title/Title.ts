@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 interface ITitle {
-  cartTitle: boolean;
+  cartTitle?: boolean;
 }
 
 const Title = styled.h3<ITitle>`
