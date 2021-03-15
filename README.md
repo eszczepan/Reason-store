@@ -1,4 +1,4 @@
-# :tada: ReasonStore
+# ReasonStore
 
 React application simulating a shopping cart.
 
@@ -23,6 +23,7 @@ React application simulating a shopping cart.
 
 **The following tools were used in project:**
 * **React** - Main technology
+* **Typescript** - JavasCript superset
 * **Axios** - Promise based HTTP client
 * **Styled-components** - Writing styles
 * **React Transition Group** - Exposes simple components useful for defining entering and exiting transitions
